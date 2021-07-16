@@ -1,0 +1,21 @@
+
+
+AWSTemplateFormatVersion: 2010-09-09
+Description: Repository for web application frontend image
+Resources:
+  Repository:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: tiffany-frameworkless-basic-web-app-frontend
+      RepositoryPolicyText:
+        Version: 2012-10-17
+        Statement:
+          - Sid: allow-ecr-read-access
+            Effect: Allow
+            Principal:
+              AWS:
+                - arn:aws:iam::967276157215:root # ex-cluster-preprod
+            Action:
+              - ecr:GetDownloadUrlForLayer
+              - ecr:BatchGetImage
+              - ecr:BatchCheckLayerAvailability
