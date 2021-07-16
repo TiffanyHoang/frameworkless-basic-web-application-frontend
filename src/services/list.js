@@ -1,14 +1,19 @@
 export function getList() {
-    return fetch('http://localhost:3333/list')
+    return fetch('https://tiffany-app.svc.platform.myobdev.com/people', {
+        headers: {
+            'Authorization': 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+        }
+    })
     .then(data => data.json())
 }
-export function setItem(item) {
-    return fetch('http://localhost:3333/list', {
+export function setItem(Name) {
+    return fetch('https://tiffany-app.svc.platform.myobdev.com/people', {
         method: 'POST',
         headers: {
-        'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
         },
-        body: JSON.stringify({ item })
+        body: JSON.stringify({ Name })
     })
     .then(data => data.json())
 }

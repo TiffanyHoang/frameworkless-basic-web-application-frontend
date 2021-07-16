@@ -29,7 +29,7 @@ function App() {
     <div className="wrapper">
       <h1>My Grocery List</h1>
       <ul>
-        {state.map(item => <li key={item.id}>{item.item}</li>)}
+        {state.map(item => <li key={item.Name}>{item.Name}</li>)}
       </ul>
       <form onSubmit={handleSubmit}>
         <label>
