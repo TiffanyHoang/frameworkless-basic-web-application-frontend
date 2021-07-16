@@ -17,3 +17,13 @@ steps:
           login: true
     agents:
       queue: fma-dev
+  
+  - wait 
+  
+  - label: ':rocket: Deploy to Jupiter PROD'
+    branches: main
+    command: 
+      - ./ops/bin/jupiter-deploy.sh prod 
+      - ./ops/bin/buildkite-annotation.sh
+    agents:
+      queue: europa-preprod-fma
