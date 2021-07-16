@@ -1,6 +1,19 @@
 ---
 steps:
-  - label: 'do not panic :cherry_blossom::whale:'
-    command: 'echo hello, engineer'
+  - label: ':gear: Prepare repo in ECR'
+    command: ./ops/bin/prepare-ecr-repo.sh
+    plugins:
+      - ecr#v2.3.0:
+          login: true
     agents:
-      queue: grace-lab
+      queue: fma-dev
+
+  - wait 
+
+  - label: ':gear: Build & push app to ECR'
+    command: ./ops/bin/build-push-to-ecr.sh
+    plugins:
+      - ecr#v2.3.0:
+          login: true
+    agents:
+      queue: fma-dev
