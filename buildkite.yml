@@ -23,7 +23,7 @@ steps:
   - label: ':rocket: Deploy to Jupiter PROD'
     branches: main
     command: 
-      - ./ops/bin/jupiter-deploy.sh prod 
+      - ./ops/bin/deploy.sh
       - ./ops/bin/buildkite-annotation.sh
     agents:
       queue: europa-preprod-fma
