@@ -25,7 +25,7 @@ objects:
         spec:
           containers:
             - name: $(name)
-              image: "274387265859.dkr.ecr.ap-southeast-2.amazonaws.com/tiffany-frameworkless-basic-web-app-frontend:$(imageTag)"
+              image: "138666658526.dkr.ecr.ap-southeast-2.amazonaws.com/tiffany-frameworkless-basic-web-app-frontend:$(imageTag)"
               ports:
                 - containerPort: 80
 
